@@ -1,0 +1,76 @@
+@import url("https://fonts.googleapis.com/css2?family=Podkova:wght@400..800&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.custom-dasharray {
+    stroke: greenyellow;
+    stroke-width: 1px;
+    stroke-dasharray: 4500;
+    fill-opacity: 0;
+}
+.dasharray:hover .custom-dasharray {
+    animation: strokerun 40s ease;
+}
+
+@keyframes strokerun {
+    0% {
+        stroke-dashoffset: 4500;
+    }
+    100% {
+        stroke-dashoffset: 0;
+    }
+}
+
+.span-first {
+    @apply -translate-y-0 rotate-45;
+}
+
+.span-last {
+    @apply translate-y-0 -rotate-45;
+}
+
+.progressbar {
+    background: conic-gradient(greenyellow var(--progress), rgb(110, 110, 110) 0%);
+}
+
+@keyframes ping {
+    0% {
+        opacity: 1;
+    }
+    75%,
+    100% {
+        transform: scaleX(1.1) scaleY(2);
+        opacity: 0;
+    }
+}
+.animate-ping-sm::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    background: rgb(253 224 71);
+    animation: ping 1.5s infinite;
+    z-index: -1;
+    border-radius: 6px;
+    border: 2px solid black;
+}
+
+.border-custom::after {
+    content: "";
+    position: absolute;
+    left: 15%;
+    right: 100%;
+    bottom: 0;
+    border-radius: 3px;
+    height: 3px;
+    background-color: rgb(71, 156, 253);
+    animation: run 0.3s ease-in-out forwards;
+}
+
+@keyframes run {
+    100% {
+        right: 15%;
+    }
+}
