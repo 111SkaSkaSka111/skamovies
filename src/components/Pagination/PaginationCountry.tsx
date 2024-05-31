@@ -16,21 +16,21 @@ interface PaginationCountryProps {
 const PaginationCountry: React.FC<PaginationCountryProps> = ({ pageInt, totalPages, type, k, s, y, name, country }) => {
     const createUrl = (page: number) => {
         if (k && s && y) {
-            return `/country/${country}/${name}/${type}?k=${k}&s=${s}&y=${y}&page=${page.toString()}`;
+            return `/country/${country}/${type}?name=${name}&k=${k}&s=${s}&y=${y}&page=${page.toString()}`;
         } else if (k && s) {
-            return `/country/${country}/${name}/${type}?k=${k}&s=${s}&page=${page.toString()}`;
+            return `/country/${country}/${type}?name=${name}&k=${k}&s=${s}&page=${page.toString()}`;
         } else if (k && y) {
-            return `/country/${country}/${name}/${type}?k=${k}&y=${y}&page=${page.toString()}`;
+            return `/country/${country}/${type}?name=${name}&k=${k}&y=${y}&page=${page.toString()}`;
         } else if (s && y) {
-            return `/country/${country}/${name}/${type}?s=${s}&y=${y}&page=${page.toString()}`;
+            return `/country/${country}/${type}?name=${name}&s=${s}&y=${y}&page=${page.toString()}`;
         } else if (k) {
-            return `/country/${country}/${name}/${type}?k=${k}&page=${page.toString()}`;
+            return `/country/${country}/${type}?name=${name}&k=${k}&page=${page.toString()}`;
         } else if (s) {
-            return `/country/${country}/${name}/${type}?s=${s}&page=${page.toString()}`;
+            return `/country/${country}/${type}?name=${name}&s=${s}&page=${page.toString()}`;
         } else if (y) {
-            return `/country/${country}/${name}/${type}?y=${y}&page=${page.toString()}`;
+            return `/country/${country}/${type}?name=${name}&y=${y}&page=${page.toString()}`;
         } else {
-            return `/country/${country}/${name}/${type}?page=${page.toString()}`;
+            return `/country/${country}/${type}?name=${name}&page=${page.toString()}`;
         }
     };
 
