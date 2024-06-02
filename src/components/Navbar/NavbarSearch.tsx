@@ -65,12 +65,12 @@ const NavbarSearch = () => {
 
     return (
         <>
-            <button onClick={handleSearchButton} className="border rounded-xl relative z-50 hover:bg-opacity-10 cursor-pointer bg-white bg-opacity-30 px-3 py-1 flex items-center gap-2">
+            <button onClick={handleSearchButton} className="border rounded-full md:rounded-xl relative z-50 hover:bg-opacity-10 cursor-pointer bg-white bg-opacity-30 px-3 py-1 flex items-center gap-2">
                 <FaMagnifyingGlass className="text-2xl" />
-                <p>Search</p>
-                <p className="border px-1 rounded bg-violet-900 border-violet-500 text-sm">ctrlK</p>
+                <p className="hidden md:flex">Search</p>
+                <p className="border px-1 rounded bg-violet-900 border-violet-500 text-sm hidden md:flex">ctrlK</p>
             </button>
-            <div ref={containerRef} className={`absolute left-5 right-5 top-3 rounded-xl overflow-hidden bottom-3 ${isOpen ? "-translate-y-0" : "-translate-y-40"} duration-300 bg-white z-50 flex items-center`}>
+            <div ref={containerRef} className={`absolute z-[9999] left-5 right-5 top-3 rounded-xl overflow-hidden bottom-3 ${isOpen ? "-translate-y-0" : "-translate-y-40"} duration-300 bg-white z-50 flex items-center`}>
                 <div className="bg-black bg-opacity-50 w-fit ml-[-8px] h-full px-5 flex items-center justify-center gap-2">
                     <p>Search</p>
                     <FaMagnifyingGlass className="text-2xl" />

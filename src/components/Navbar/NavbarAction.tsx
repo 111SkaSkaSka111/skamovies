@@ -13,7 +13,7 @@ const NavbarAction: React.FC<NavbarAction> = ({ link, teks, user }) => {
     return (
         <>
             <div className="flex items-center gap-5">
-                <div ref={navRef} className="flex origin-top-right scale-0 md:scale-100 duration-300 absolute md:static flex-col md:flex-row right-10 bg-black p-5 md:p-0 px-2 rounded-md top-[150%] items-center justify-center gap-5">
+                <div ref={navRef} className="flex origin-top-right scale-0 md:scale-100 duration-300 absolute z-[999] md:static flex-col md:flex-row right-10 bg-black p-5 md:p-0 px-2 rounded-md top-[150%] items-center justify-center gap-5">
                     <p className="w-full py-2 md:hidden text-center text-xl bg-gradient-to-br from-black from-30% via-teal-500 to-black to-70%">{user?.name}</p>
                     <Link href={link} className="border px-10 w-full md:w-fit font-bold relative group z-10 flex items-center justify-center overflow-hidden bg-yellow-500 py-2 text-black hover:text-white">
                         <span className="absolute w-0 h-full bg-slate-700 group-hover:w-[110%] duration-300 bg-opacity-70 z-[-1] flex items-center justify-center"></span>
