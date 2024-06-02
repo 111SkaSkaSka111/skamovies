@@ -9,7 +9,7 @@ interface TabsButtonProps {
 
 const TabsButton: React.FC<TabsButtonProps> = ({ handleActive, active }) => {
     return (
-        <div className="flex border rounded-full bg-gradient-to-br from-black via-lime-500 to-black from-20% to-80% text-white overflow-hidden">
+        <div className="flex border rounded-full bg-gradient-to-br from-black via-lime-500 to-black from-20% to-80% text-white overflow-hidden w-fit">
             <button
                 id="tabs-1"
                 onClick={handleActive}

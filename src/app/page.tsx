@@ -12,6 +12,9 @@ export default async function Home() {
     ]);
 
     const popularMovies = await getGenre({ apiData: popularMovieRes });
+    const nowPlaying = nowPlayingRes?.data?.results;
+    const topRated = topRatedRes?.data?.results;
+    const upcoming = upcomingRes?.data?.results;
 
     return (
         <main className="">
@@ -19,7 +22,7 @@ export default async function Home() {
                 <Carousel apiData={popularMovies.slice(0, 8)} />
             </section>
             <section className="w-full relative">
-                <TabsPage nowPlaying={nowPlayingRes?.data?.results} popular={popularMovieRes?.data?.results} topRated={topRatedRes?.data?.results} upcoming={upcomingRes?.data?.results} />
+                <TabsPage nowPlaying={nowPlaying.slice(0, 10)} popular={popularMovies.slice(0, 10)} topRated={topRated.slice(0, 10)} upcoming={upcoming.slice(0, 10)} />
             </section>
         </main>
     );
