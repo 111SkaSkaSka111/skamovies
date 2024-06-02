@@ -1,12 +1,13 @@
 "use client";
 
 import React, { useState } from "react";
-import TabsCard from "./TabsCard";
 import TabsButton from "./TabsButton";
-import TabsImgBackdrop from "./TabsImgBackdrop";
-import Link from "next/link";
-import { formatDate } from "date-fns";
 import TabsPageCard from "./TabsPageCard";
+import Link from "next/link";
+import TabsCard from "./TabsCard";
+import TabsImgBackdrop from "./TabsImgBackdrop";
+import { formatDate } from "date-fns";
+import TabsPageCardGrid from "./TabsPageCardGrid";
 
 interface TabsPageProps {
     nowPlaying: any;
@@ -22,7 +23,7 @@ const TabsPage: React.FC<TabsPageProps> = ({ nowPlaying, popular, upcoming, topR
     const Tabs = [
         {
             id: "tabs-1",
-            body: <TabsPageCard apiData={nowPlaying} isChance={isChance} />,
+            body: <TabsPageCardGrid apiData={nowPlaying} isChance={isChance} />,
             link: (
                 <Link href={"/discover/now_playing/movie"} className="underline text-black hover:text-blue-500">
                     See More
@@ -31,7 +32,7 @@ const TabsPage: React.FC<TabsPageProps> = ({ nowPlaying, popular, upcoming, topR
         },
         {
             id: "tabs-2",
-            body: <TabsPageCard apiData={popular} isChance={isChance} />,
+            body: <TabsPageCardGrid apiData={popular} isChance={isChance} />,
             link: (
                 <Link href={"/discover/popular/movie"} className="underline text-black hover:text-blue-500">
                     See More
@@ -40,7 +41,7 @@ const TabsPage: React.FC<TabsPageProps> = ({ nowPlaying, popular, upcoming, topR
         },
         {
             id: "tabs-3",
-            body: <TabsPageCard apiData={upcoming} isChance={isChance} />,
+            body: <TabsPageCardGrid apiData={upcoming} isChance={isChance} />,
             link: (
                 <Link href={"/discover/upcoming/movie"} className="underline text-black hover:text-blue-500">
                     See More
@@ -49,7 +50,7 @@ const TabsPage: React.FC<TabsPageProps> = ({ nowPlaying, popular, upcoming, topR
         },
         {
             id: "tabs-4",
-            body: <TabsPageCard apiData={topRated} isChance={isChance} />,
+            body: <TabsPageCardGrid apiData={topRated} isChance={isChance} />,
             link: (
                 <Link href={"/discover/top_rated/movie"} className="underline text-black hover:text-blue-500">
                     See More
@@ -70,7 +71,7 @@ const TabsPage: React.FC<TabsPageProps> = ({ nowPlaying, popular, upcoming, topR
 
     return (
         <div className="flex flex-col gap-5 pt-5 relative z-10">
-            <div className="flex flex-col gap-5 px-5 md:px-20 pb-5">
+            <div className="flex flex-col gap-5 pb-5">
                 <h1 className="text-4xl font-bold font-podkova border-b-4 rounded-full w-fit px-5 border-yellow-500">Movies</h1>
                 <div className="flex items-center justify-between w-full">
                     <TabsButton active={active} handleActive={handleActive} />

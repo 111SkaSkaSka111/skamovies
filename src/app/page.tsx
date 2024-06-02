@@ -1,5 +1,6 @@
 import Carousel from "@/components/Carousel/Carousel";
 import TabsPage from "@/components/Tabs/TabsPage";
+import TabsPageCardGrid from "@/components/Tabs/TabsPageCardGrid";
 import { getGenre } from "@/libs/getGenre";
 import axios from "axios";
 
@@ -21,7 +22,7 @@ export default async function Home() {
             <section className="w-full flex items-center justify-center px-5 md:px-20 py-10 h-[90vh] overflow-hidden bg-black">
                 <Carousel apiData={popularMovies.slice(0, 8)} />
             </section>
-            <section className="w-full relative">
+            <section className="w-full relative p-5 md:px-20">
                 <TabsPage nowPlaying={nowPlaying.slice(0, 10)} popular={popularMovies.slice(0, 10)} topRated={topRated.slice(0, 10)} upcoming={upcoming.slice(0, 10)} />
             </section>
         </main>
