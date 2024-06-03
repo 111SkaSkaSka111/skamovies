@@ -19,7 +19,6 @@ const NavbarSearch = () => {
     const handleSearchButton = (e: { preventDefault: () => void }) => {
         e.preventDefault();
         setIsOpen(true);
-        console.log(isOpen);
     };
 
     const handleCtrlK = (e: { ctrlKey: any; key: string }) => {
@@ -40,16 +39,29 @@ const NavbarSearch = () => {
         }
     };
 
+    const handleSearch = (e: { preventDefault: () => void }) => {
+        e.preventDefault();
+        const keyword = searchRef.current?.value.trim();
+        if (keyword !== "") {
+            setIsOpen(false);
+            router.push(`/search/${selected}/${keyword}`);
+            if (searchRef.current) {
+                searchRef.current.value = "";
+            }
+        }
+    };
+
     const Search = (e: React.KeyboardEvent<HTMLInputElement>) => {
         if (e.key === "Enter") {
-            const keyword = searchRef.current?.value.trim();
-            if (keyword !== "") {
-                setIsOpen(false);
-                router.push(`/search/${selected}/${keyword}`);
-                if (searchRef.current) {
-                    searchRef.current.value = "";
-                }
-            }
+            handleSearch(e);
+            // const keyword = searchRef.current?.value.trim();
+            // if (keyword !== "") {
+            //     setIsOpen(false);
+            //     router.push(`/search/${selected}/${keyword}`);
+            //     if (searchRef.current) {
+            //         searchRef.current.value = "";
+            //     }
+            // }
         }
     };
 
@@ -71,8 +83,8 @@ const NavbarSearch = () => {
                 <p className="border px-1 rounded bg-violet-900 border-violet-500 text-sm hidden md:flex">ctrlK</p>
             </button>
             <div ref={containerRef} className={`absolute z-[9999] left-5 right-5 top-3 rounded-xl overflow-hidden bottom-3 ${isOpen ? "-translate-y-0" : "-translate-y-40"} duration-300 bg-white z-50 flex items-center`}>
-                <div className="bg-black bg-opacity-50 w-fit ml-[-8px] h-full px-5 flex items-center justify-center gap-2">
-                    <p>Search</p>
+                <div onClick={handleSearch} className="bg-black cursor-pointer hover:text-yellow-500 focus-visible:text-yellow-500 bg-opacity-50 w-fit ml-[-8px] h-full px-5 flex items-center justify-center gap-2">
+                    <p className="hidden md:flex">Search</p>
                     <FaMagnifyingGlass className="text-2xl" />
                 </div>
                 <div className="border-2 w-full h-full border-black rounded-r-lg">
